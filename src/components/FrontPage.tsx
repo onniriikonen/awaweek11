@@ -20,7 +20,7 @@ const FrontPage = () => {
     return (
         <>
             <h2>Joke</h2>
-            {loading && <Typography>Loading joke...</Typography>}
+            {loading && <Typography>Loading a joke...</Typography>}
             {error && <Typography color="error">{error}</Typography>}
             {joke && (
                 <Card variant="outlined">
