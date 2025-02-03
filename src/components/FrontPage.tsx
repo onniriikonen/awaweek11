@@ -12,7 +12,7 @@ interface IJoke {
 }
 
 interface FrontPageProps {
-    saveJoke?: (joke: IJoke) => void
+    saveJoke?: (joke: IJoke) => boolean
   }
 
 const FrontPage: React.FC<FrontPageProps> = ({ saveJoke }) => {
