@@ -2,7 +2,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Header from "./components/Header"
-import Home from "./components/Home"
+import FrontPage from "./components/FrontPage"
 import Saved from "./components/Saved"
 
 
@@ -12,7 +12,7 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<FrontPage />} />
         <Route path="/saved" element={<Saved />} />
       </Routes>
     </BrowserRouter>
