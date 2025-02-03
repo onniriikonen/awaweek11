@@ -2,7 +2,6 @@ import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-
 import useFetch from './useFetch'
 
 interface IJoke {
@@ -12,7 +11,11 @@ interface IJoke {
     punchline: string
 }
 
-const FrontPage = () => {
+interface FrontPageProps {
+    saveJoke?: (joke: IJoke) => void
+  }
+
+const FrontPage: React.FC<FrontPageProps> = ({ saveJoke }) => {
     const url: string = "https://official-joke-api.appspot.com/random_joke"
     const {data, loading, error} = useFetch(url)
     const joke = data as IJoke
@@ -33,6 +36,11 @@ const FrontPage = () => {
             <Button variant="contained" color="primary" onClick={() => window.location.reload()}>
                 Get Joke
             </Button>
+            {joke && saveJoke && (
+            <Button variant="contained" color="secondary" onClick={() => saveJoke(joke)}>
+            Save Joke
+            </Button>
+      )}
 
         </>
     )
