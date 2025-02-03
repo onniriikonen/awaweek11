@@ -15,11 +15,11 @@ interface IJoke {
 const FrontPage = () => {
     const url: string = "https://official-joke-api.appspot.com/random_joke"
     const {data, loading, error} = useFetch(url)
-    const joke = data as IJoke | null
+    const joke = data as IJoke
 
     return (
         <>
-            <h2>Joke of the Moment</h2>
+            <h2>Joke</h2>
             {loading && <Typography>Loading joke...</Typography>}
             {error && <Typography color="error">{error}</Typography>}
             {joke && (
@@ -31,7 +31,7 @@ const FrontPage = () => {
                 </Card>
             )}
             <Button variant="contained" color="primary" onClick={() => window.location.reload()}>
-                Get New Joke
+                Get Joke
             </Button>
 
         </>
